@@ -1,0 +1,55 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: prometheus
+spec:
+  strategy:
+    canary:
+      analysis:
+      #   templates:
+      #   # name of AnalysisTemplate
+      #   - templateName: success-rate
+      #   # When it begins (after the 1-minute pause)
+      # canaryService: prometheus-canary 
+      # stableService: prometheus
+      # trafficRouting:
+      #   nginx:
+      #     stableIngress: prometheus
+      steps:
+      - setWeight: 10
+      - pause: {duration: 10}
+      - setWeight: 20
+      - pause: {duration: 10}
+      - setWeight: 50
+      - pause: {duration: 10}
+      - setWeight: 80
+      - pause: {duration: 10}
+  revisionHistoryLimit: 2
+  replicas: 1
+  revisionHistoryLimit: 20
+  selector:
+    matchLabels:
+      {{- include "prometheus.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "prometheus.selectorLabels" . | nindent 8 }}
+  # selector:
+  #   matchLabels:
+  #     app: prometheus
+  # template:
+  #   metadata:
+  #     labels:
+  #       app: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
