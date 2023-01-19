@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository:  argoproj/rollouts-demo
+  repository:  surakshaniveus/ms-node01
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "blue"
+  tag: "23"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: LoadBalancer
-  port: 80
+  port: 3000
 
 prometheus:
   enabled: true
