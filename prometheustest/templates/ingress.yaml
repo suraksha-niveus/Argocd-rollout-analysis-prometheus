@@ -6,14 +6,32 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: local.niveussolutions.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: prometheustest
-                port:
-                  name: http
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheustest
+            port:
+              number: 80
+
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: prometheustest
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+# spec:
+#   rules:
+#     - host: local.niveussolutions.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: prometheustest
+#                 port:
+#                   name: http
 

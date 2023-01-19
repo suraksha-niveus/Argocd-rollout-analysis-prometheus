@@ -29,11 +29,22 @@ spec:
   revisionHistoryLimit: 20
   selector:
     matchLabels:
-      app: prometheustest
+      {{- include "prometheustest.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
-        app: prometheustest
+        {{- include "prometheustest.selectorLabels" . | nindent 8 }}
+  # selector:
+  #   matchLabels:
+  #     app: prometheustest
+  # template:
+  #   metadata:
+  #     labels:
+  #       app: prometheustest
     spec:
       containers:
       - name: prometheustest
@@ -41,3 +52,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+
+
+
