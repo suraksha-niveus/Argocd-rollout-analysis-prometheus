@@ -44,8 +44,9 @@ prometheus:
   enabled: true
 
 
-# ingress:
-#   enabled: false
+ingress:
+  enabled: true
+
 #   className: ""
 #   annotations: {}
 #     # kubernetes.io/ingress.class: nginx
