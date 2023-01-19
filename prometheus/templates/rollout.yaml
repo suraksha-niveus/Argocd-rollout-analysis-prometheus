@@ -7,15 +7,15 @@ spec:
   strategy:
     canary:
       analysis:
-      #   templates:
-      #   # name of AnalysisTemplate
-      #   - templateName: success-rate
-      #   # When it begins (after the 1-minute pause)
-      # canaryService: prometheus-canary 
-      # stableService: prometheus
-      # trafficRouting:
-      #   nginx:
-      #     stableIngress: prometheus
+        templates:
+        # name of AnalysisTemplate
+        - templateName: success-rate
+        # When it begins (after the 1-minute pause)
+      canaryService: prometheus-canary 
+      stableService: prometheus
+      trafficRouting:
+        nginx:
+          stableIngress: prometheus
       steps:
       - setWeight: 10
       - pause: {duration: 10}
