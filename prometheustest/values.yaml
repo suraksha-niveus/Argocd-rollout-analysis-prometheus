@@ -40,6 +40,9 @@ service:
   type: LoadBalancer
   port: 8080
 
+prometheus:
+  enabled: true
+
 ingress:
   enabled: false
   className: ""
