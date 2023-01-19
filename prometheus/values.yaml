@@ -44,8 +44,8 @@ prometheus:
   enabled: true
 
 
-ingress:
-  enabled: true
+# ingress:
+#   enabled: true
 
 #   className: ""
 #   annotations: {}
