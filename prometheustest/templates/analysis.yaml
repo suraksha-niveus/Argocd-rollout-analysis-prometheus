@@ -16,9 +16,9 @@ spec:
         address: http://34.87.55.179:9090/
         query: |
           sum(irate(
-            nginx_ingress_controller_nginx_process_requests_total{reporter="source",destination_service=~"prometheustestcanary",response_code!~"5.*"}[1m]
+            nginx_ingress_controller_nginx_process_requests_total{reporter="source",destination_service=~"prometheustest-canary",response_code!~"5.*"}[1m]
           )) / 
           sum(irate(
-            nginx_ingress_controller_nginx_process_requests_total{reporter="source",destination_service=~"prometheustestcanary"}[1m]
+            nginx_ingress_controller_nginx_process_requests_total{reporter="source",destination_service=~"prometheustest-canary"}[1m]
           ))
           

@@ -10,7 +10,7 @@ spec:
         # name of AnalysisTemplate
         - templateName: success-rate
         # When it begins (after the 1-minute pause)
-      canaryService: prometheustestcanary 
+      canaryService: prometheustest-canary 
       stableService: prometheustest
       trafficRouting:
         nginx:
