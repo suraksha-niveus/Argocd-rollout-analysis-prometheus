@@ -1,15 +1,29 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "prometheus.fullname" . }}-canary
-  labels:
-    {{- include "prometheus.labels" . | nindent 4 }}
+ name: prometheus-canary
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    {{- include "prometheus.selectorLabels" . | nindent 4 }}
+ selector:
+   app: prometheus
+ ports:
+   - protocol: "TCP"
+     port: 3000
+     targetPort: 3000
+ type: LoadBalancer
+
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: {{ include "prometheus.fullname" . }}-canary
+#   labels:
+#     {{- include "prometheus.labels" . | nindent 4 }}
+# spec:
+#   type: {{ .Values.service.type }}
+#   ports:
+#     - port: {{ .Values.service.port }}
+#       targetPort: http
+#       protocol: TCP
+#       name: http
+#   selector:
+#     {{- include "prometheus.selectorLabels" . | nindent 4 }}

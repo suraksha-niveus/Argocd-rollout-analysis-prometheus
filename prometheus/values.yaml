@@ -42,6 +42,7 @@ service:
 
 prometheus:
   enabled: true
+  address: http://34.100.249.240:9090/
 
 
 # ingress:
