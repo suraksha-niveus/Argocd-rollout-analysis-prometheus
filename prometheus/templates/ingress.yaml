@@ -1,3 +1,4 @@
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: prometheus
@@ -5,14 +6,31 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: prometheus
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: prometheus
-            port:
-              number: 3000
+    - host: argocd.niveussolutions.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus
+                port:
+                  name: http
+# kind: Ingress
+# metadata:
+#   name: prometheus
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+# spec:
+#   rules:
+#   - host: prometheus
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: prometheus
+#             port:
+#               number: 3000
 
