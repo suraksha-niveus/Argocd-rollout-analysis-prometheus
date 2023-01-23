@@ -8,6 +8,6 @@ spec:
     targetPort: http
     protocol: TCP
     name: http
+  type: LoadBalancer
   selector:
     app: prometheus-rollouts-demo
-    
