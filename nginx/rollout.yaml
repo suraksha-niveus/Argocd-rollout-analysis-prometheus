@@ -19,13 +19,13 @@ spec:
           stableIngress: prometheus-rollouts-demo
       steps:
       - setWeight: 10
-      - pause: {duration: 10m}
+      - pause: {duration: 1m}
       - setWeight: 20
-      - pause: {duration: 10m}
+      - pause: {duration: 1m}
       - setWeight: 50
-      - pause: {duration: 10m}
+      - pause: {duration: 1m}
       - setWeight: 80
-      - pause: {duration: 10m}
+      - pause: {duration: 1m}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
       - name: prometheus-rollouts-demo
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:yellow
         ports:
         - name: http
           containerPort: 8080
