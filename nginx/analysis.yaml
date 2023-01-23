@@ -18,11 +18,18 @@ spec:
         query: |
           
           sum(irate( 
-            nginx_ingress_controller_requests{service=~"{{args.service-name}}",status!~"[4-5].*"}[1m]
+            nginx_ingress_controller_requests{service=~"{{args.service-name}}",response_code!~"5.*"}[1m]
           )) / 
           sum(irate( 
             nginx_ingress_controller_requests{service=~"{{args.service-name}}"}[1m]
           ))
+
+          # sum(irate( 
+          #   nginx_ingress_controller_requests{service=~"{{args.service-name}}",status!~"[4-5].*"}[1m]
+          # )) / 
+          # sum(irate( 
+          #   nginx_ingress_controller_requests{service=~"{{args.service-name}}"}[1m]
+          # ))
           
           # sum(irate(
           #   nginx_ingress_controller_requests{reporter="source",destination_service=~"{{args.service-name}}",response_code!~"5.*"}[5m]
