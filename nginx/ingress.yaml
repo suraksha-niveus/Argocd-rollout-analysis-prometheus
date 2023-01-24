@@ -15,4 +15,4 @@ spec:
               service:
                 name: prometheus-rollouts-demo
                 port:
-                  number: 3000
+                  number: 80

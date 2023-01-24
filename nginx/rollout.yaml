@@ -37,10 +37,10 @@ spec:
     spec:
       containers:
       - name: prometheus-rollouts-demo
-        image: surakshaniveus/ms-node01:22
+        image: argoproj/rollouts-demo:blue
         ports:
         - name: http
-          containerPort: 3000
+          containerPort: 8080
           protocol: TCP
         resources:
           requests:
