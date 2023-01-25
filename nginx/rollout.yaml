@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
       - name: prometheus-rollouts-demo
-        image: surakshaniveus/ms-node01:21
+        image: surakshaniveus/ms-node01:22
         ports:
         - name: http
           containerPort: 3000
