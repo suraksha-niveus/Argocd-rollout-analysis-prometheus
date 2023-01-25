@@ -16,7 +16,7 @@ spec:
       prometheus:
         address: http://34.93.13.167:9090 
         query: |
-          sum(rate(nginx_ingress_controller_requests{service=~"prometheus-rollouts-demo",status!~"5.*"}[100m])) /
-          sum(rate(nginx_ingress_controller_requests{service=~"prometheus-rollouts-demo"}[100m]))
+          sum(rate(nginx_ingress_controller_requests{service=~"prometheus-rollouts-demo",status!~"5.*"}[200m])) /
+          sum(rate(nginx_ingress_controller_requests{service=~"prometheus-rollouts-demo"}[200m]))
 
          
