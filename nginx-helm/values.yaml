@@ -8,7 +8,7 @@ image:
   repository: surakshaniveus/ms-node01
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "22"
+  tag: "23"
 
 imagePullSecrets: []
 nameOverride: ""
