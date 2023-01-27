@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: prometheus-rollouts-demo
+  name: nginx-helm
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: prometheus-rollouts-demo.34.93.190.171.nip.io 
+    - host: nginx-helm.34.93.190.171.nip.io 
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: prometheus-rollouts-demo
+                name: nginx-helm
                 port:
                   number: 3000
