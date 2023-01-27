@@ -40,6 +40,10 @@ service:
   type: LoadBalancer
   port: 3000
 
+prometheus:
+  enabled: true
+  address: http://34.93.129.88:9090/
+
 # ingress:
 #   enabled: true
 #   className: ""
