@@ -2,14 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-helm-canary
-  labels:
-    {{- include "nginx-helm.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - port: 3000
+    targetPort: http
+    protocol: TCP
+    name: http
+  type: LoadBalancer
   selector:
-    {{- include "nginx-helm.selectorLabels" . | nindent 4 }}
+    app: nginx-helm-canary
