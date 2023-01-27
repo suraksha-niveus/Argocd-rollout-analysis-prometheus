@@ -10,4 +10,4 @@ spec:
     name: http
   type: LoadBalancer
   selector:
-    app: nginx-helm-canary
+    app: nginx-helm
