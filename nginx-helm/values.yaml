@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: LoadBalancer
-  port: 3000
+  port: 300
 
 prometheus:
   enabled: true
