@@ -42,8 +42,8 @@ service:
 
 prometheus:
   enabled: true
-  address: nginx-helm.nginx-helm.svc.cluster.local:9090
-
+  address: http://prometheus-server.ingress-nginx:9090
+     
 # ingress:
 #   enabled: true
 #   className: ""
