@@ -42,7 +42,7 @@ service:
 
 prometheus:
   enabled: true
-  address: http://prometheus-server.ingress-nginx:9090
+  address: http://10.80.5.104:9090
      
 # ingress:
 #   enabled: true
